@@ -14,8 +14,8 @@ jobs:
 
     - name: Set Git Config
       run: |
-        git config user.name "Your Name"
-        git config user.email "your.email@example.com"
+        git config user.name "KhanAnupamShafi"
+        git config user.email "deep71.bd@gmail.com"
 
     - name: Make Changes
       run: echo "$(date)" > daily-commit.txt
