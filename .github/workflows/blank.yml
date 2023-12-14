@@ -20,8 +20,12 @@ jobs:
     - name: Make Changes
       run: echo "$(date)" > daily-commit.txt
 
-    - name: Commit and Push Changes
+    - name: Commit Changes
       run: |
         git add .
         git commit -m "$(date '+%Y-%m-%d') Draw io Anupam"
-        git push
+
+    - name: Push Changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.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 }}
