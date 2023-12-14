@@ -1,4 +1,4 @@
-name: Auto Commit
+name: Git Automation
 
 on:
   push:
@@ -19,12 +19,14 @@ jobs:
         git config user.email "deep71.bd@gmail.com"
 
     - name: Make Changes
-      run: echo "$(date)" > auto-commit.txt
+      run: |
+        echo "<?php echo date('Y-m-d H:i:s'); ?>" > cron-task.php
+
 
     - name: Commit and Push Changes
       run: |
         git add .
-        git commit -m "Auto commit - $(date '+%Y-%m-%d %H:%M:%S')"
+        git commit -m "$(date '+%Y-%m-%d %H:%M:%S') - Auto Action "
         git push
 
 
