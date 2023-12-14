@@ -21,7 +21,7 @@ jobs:
     - name: Make Changes
       run: |
         echo "<?php // Added on $(date '+%Y-%m-%d %H:%M:%S')"
-        echo "echo date($(date '+%Y-%m-%d %H:%M:%S')); ?>" >> cron-task.php
+        echo "<?php echo date($(date '+%Y-%m-%d %H:%M:%S')); ?>" >> cron-task.php
 
 
     - name: Commit and Push Changes
