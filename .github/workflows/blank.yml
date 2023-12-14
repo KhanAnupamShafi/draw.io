@@ -1,9 +1,9 @@
-name: Daily Commit
+name: Auto Commit
 
 on:
   push:
     branches:
-      - main
+      - main  # Adjust the branch name as needed
 
 jobs:
   commit:
@@ -19,10 +19,40 @@ jobs:
         git config user.email "deep71.bd@gmail.com"
 
     - name: Make Changes
-      run: echo "$(date)" > daily-commit.txt
+      run: echo "$(date)" > auto-commit.txt
 
     - name: Commit and Push Changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: main
+      run: |
+        git add .
+        git commit -m "Auto commit - $(date '+%Y-%m-%d %H:%M:%S')"
+        git push
+
+
+# name: Daily Commit
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   commit:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Checkout repository
+#       uses: actions/checkout@v2
+
+#     - name: Set Git Config
+#       run: |
+#         git config user.name "KhanAnupamShafi"
+#         git config user.email "deep71.bd@gmail.com"
+
+#     - name: Make Changes
+#       run: echo "$(date)" > daily-commit.txt
+
+#     - name: Commit and Push Changes
+#       uses: ad-m/github-push-action@master
+#       with:
+#         github_token: ${{ secrets.GITHUB_TOKEN }}
+#         branch: main
