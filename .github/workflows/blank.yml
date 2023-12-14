@@ -1,9 +1,8 @@
 name: Git Automation
 
 on:
-  push:
-    branches:
-      - main  # Adjust the branch name as needed
+  schedule:
+    - cron: '0 0 * * *'  # Runs every day at midnight UTC
 
 jobs:
   commit:
